@@ -1,0 +1,21 @@
+<policies>
+  <inbound>
+    <base />
+    <cors>
+      <allowed-origins>
+        <origin>https://prod-ui.lmcalc.com</origin>
+      </allowed-origins>
+      <allowed-methods>
+        <method>GET</method>
+        <method>POST</method>
+      </allowed-methods>
+      <allowed-headers>
+        <header>Authorization</header>
+        <header>Content-Type</header>
+      </allowed-headers>
+    </cors>
+    <set-backend-service base-url="https://aks-prod.lmcalc.com/backend" />
+  </inbound>
+  <backend><base /></backend>
+  <outbound><base /></outbound>
+</policies>

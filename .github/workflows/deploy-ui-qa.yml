@@ -1,0 +1,20 @@
+name: Deploy UI QA
+on:
+  push:
+    branches: [ main ]
+    paths: [ "ui-angular/**" ]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: cd ui-angular && npm ci
+      - run: cd ui-angular && npm run build -- --configuration=qa
+      - uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.SWA_TOKEN_QA }}
+          app_location: "ui-angular"
+          output_location: "ui-angular/dist"
