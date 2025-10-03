@@ -8,6 +8,10 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 COPY --from=build /app .
 
+#Config files must be inside container
+COPY appsettings.json .
+COPY ocelot.json .
+
 ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
 

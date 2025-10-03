@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using LMCalc.Api.Models;
 
 namespace BackendDotnet.Controllers;
 
@@ -7,8 +8,13 @@ namespace BackendDotnet.Controllers;
 public class WeatherForecastController : ControllerBase
 {
     [HttpGet]
-    public IEnumerable<string> Get()
+    public IEnumerable<Weather> Get()
     {
-        return new string[] { "value1", "value2" };
+        return new[]
+            {
+                new Weather { City = "LA", Temp = 27 },
+                new Weather { City = "NYC", Temp = 18 },
+                new Weather { City = "Chicago", Temp = 15 }
+            };
     }
 }

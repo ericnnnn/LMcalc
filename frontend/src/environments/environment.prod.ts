@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://api.lmcalc.com"
+  apiUrl: "https://api.lmcalc.com/api"
 };
