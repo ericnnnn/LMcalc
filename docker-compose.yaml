@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    container_name: lmcalc-backend
+    ports:
+      - "5000:80"
+
+  gateway:
+    build: ./gateway
+    container_name: lmcalc-gateway
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  frontend:
+    build: ./frontend
+    container_name: lmcalc-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - gateway

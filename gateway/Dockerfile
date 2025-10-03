@@ -11,4 +11,4 @@ COPY --from=build /app .
 ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
 
-ENTRYPOINT ["dotnet", "LMCalc.Api.dll"]
+ENTRYPOINT ["dotnet", "Gateway.dll"]
